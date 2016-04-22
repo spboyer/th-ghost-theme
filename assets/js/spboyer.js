@@ -10,7 +10,7 @@ function _dmFollowup(file) { if (typeof DMAds === 'undefined') _dmBootstrap('cdn
 (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000); })();
 
 // Disqus
-var disqus_shortname = 'troyhunt';
+var disqus_shortname = 'spboyer';
 (function () {
     var s = document.createElement('script');
     s.async = true;
@@ -25,5 +25,5 @@ var disqus_shortname = 'troyhunt';
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-10949399-1', 'auto');
+ga('create', 'UA-48228610-1', 'auto');
 ga('send', 'pageview');
