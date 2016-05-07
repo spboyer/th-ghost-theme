@@ -2363,12 +2363,12 @@ footer a
 
 /* Troy's custom bits */
 
-#ad1, #ad3, #ad4
+#ad1, #ad3, #ad4, #ad5
 {
   background-color: #D2D2D2;
 }
 
-#ad1
+#ad1, #ad5
 {
   margin: 18px 0 38px;
   width: 300px;
@@ -2409,6 +2409,7 @@ footer a
   height: 250px;
 }
 
+
 #disqus_thread
 {
   padding-top: 1.84615rem;
@@ -2431,6 +2432,7 @@ iframe.twitter-tweet
   {
     display: block;
   }
+
 }
 
 @media (min-width:0)and (max-width:24em)
@@ -2439,4 +2441,6 @@ iframe.twitter-tweet
   {
     display: none;
   }
+
 }
+
