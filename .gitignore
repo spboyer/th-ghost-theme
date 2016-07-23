@@ -27,6 +27,9 @@ node_modules
 assets/css/main.min.css
 assets/js/app.js
 
+# Generated dist folder 
+dist
+
 # =========================
 # Operating System Files
 # =========================

@@ -3,7 +3,14 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     cssmin = require('gulp-cssmin'),
-    cmq = require('gulp-combine-media-queries');
+    cmq = require('gulp-combine-media-queries'),
+    clean = require('gulp-rimraf'),
+    zip = require('gulp-zip');
+
+gulp.task('clean', function() {
+  console.log("Clean all files in dist folder");
+  return gulp.src("dist/*", { read: false }).pipe(clean());
+});
 
 gulp.task('bundle-minify-js', function () {
   return gulp.src(['assets/js/*.js', '!assets/js/app.js'])
@@ -20,4 +27,17 @@ gulp.task('styles-build', function() {
     .pipe(gulp.dest('assets/css'));
 })
 
-gulp.task('default', ['bundle-minify-js', 'styles-build']);
+// Copy theme context to the dist folder
+gulp.task('build-dist', ['bundle-minify-js', 'styles-build'], function() {
+    gulp.src(['**/*min.*','**/app.js','**/fonts/*', '**/faviocon.ico', '**/*.hbs', '!node_modules/**/*.*' ])
+   .pipe(gulp.dest('./dist'));
+});
+
+// Zip the dist folder 
+gulp.task('zip', ['build-dist'], function() {
+    return gulp.src('dist/*')
+        .pipe(zip('saquatchcoding-ghost-theme.zip'))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', ['clean', 'zip']);
