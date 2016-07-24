@@ -28,7 +28,8 @@ assets/css/main.min.css
 assets/js/app.js
 
 # Generated dist folder 
-sasquatchcoding-ghost-theme
+dist
+sasquatchcoding-ghost-theme.zip
 
 # =========================
 # Operating System Files

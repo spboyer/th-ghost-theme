@@ -7,12 +7,7 @@ var gulp = require('gulp'),
     clean = require('gulp-rimraf'),
     zip = require('gulp-zip');
 
-var output_dir = 'sasquatchcoding-ghost-theme'
-
-gulp.task('clean', function() {
-  console.log("Clean all files in dist folder");
-  return gulp.src(output_dir + "/*", { read: false }).pipe(clean());
-});
+var output_dir = 'dist'
 
 gulp.task('bundle-minify-js', function () {
   return gulp.src(['assets/js/*.js', '!assets/js/app.js'])
@@ -31,15 +26,16 @@ gulp.task('styles-build', function() {
 
 // Copy theme context to the dist folder
 gulp.task('build-dist', ['bundle-minify-js', 'styles-build'], function() {
-    gulp.src(['**/*min.*','**/app.js','**/fonts/*', '**/faviocon.ico', './**/*.hbs', './package.json', '!node_modules/**/*.*' ])
-   .pipe(gulp.dest('./' + output_dir));
+    var source = [
+        './assets/**/*',
+        './partials/**/*',
+        'package.json',
+        '*.hbs'
+    ];
+    return gulp.src(source, {base: './'})
+        .pipe(gulp.dest(output_dir))
+        .pipe(zip('sasquatchcoding-ghost-theme.zip'))
+        .pipe(gulp.dest('./'));
 });
 
-// Zip the dist folder 
-gulp.task('zip', ['build-dist'], function() {
-    return gulp.src(output_dir + '/*')
-        .pipe(zip('saquatchcoding-ghost-theme.zip'))
-        .pipe(gulp.dest('output_dir'));
-});
-
-gulp.task('default', ['clean', 'build-dist']);
+gulp.task('default', ['build-dist']);
