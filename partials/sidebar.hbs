@@ -16,10 +16,9 @@
         </ol>
     </div>
 
-    {{^is "tag, page"}}
-    <hr/>
-    <div class="widget sidebar-featured">    
-        {{#is "home"}}
+        <hr/>
+        <div class="widget sidebar-featured">    
+        {{#is "home, tag, page"}}
             <h4 class="sidebar-featured-header">All Tags:</h4>
             {{#get "tags" limit="all"}}
                     {{tags separator=" | "}}        
@@ -29,7 +28,6 @@
             {{tags separator=" | "}}           
         {{/is}}
         </div>
-    {{/is}}
     
     <hr/>
     <div class="widget sidebar-featured">
