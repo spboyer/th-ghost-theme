@@ -5,9 +5,12 @@ var gulp = require('gulp'),
     cssmin = require('gulp-cssmin'),
     cmq = require('gulp-combine-media-queries'),
     clean = require('gulp-rimraf'),
-    zip = require('gulp-zip');
+    zip = require('gulp-zip'),
+    config = require('./package.json');
 
-var output_dir = 'dist'
+var output_dir = 'dist';
+// to update the theme version, change the pacakge version in paskage.json
+var current_version = 'sasquatchcoding-ghost-theme-' + config.version + '.zip';
 
 gulp.task('bundle-minify-js', function () {
   return gulp.src(['assets/js/*.js', '!assets/js/app.js'])
@@ -33,8 +36,8 @@ gulp.task('build-dist', ['bundle-minify-js', 'styles-build'], function() {
         '*.hbs'
     ];
     return gulp.src(source, {base: './'})
-        .pipe(gulp.dest(output_dir))
-        .pipe(zip('sasquatchcoding-ghost-theme.zip'))
+        .pipe(gulp.dest(output_dir))        
+        .pipe(zip(current_version))
         .pipe(gulp.dest('./'));
 });
 

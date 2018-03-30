@@ -26,6 +26,7 @@ node_modules
 # Generated files
 assets/css/main.min.css
 assets/js/app.js
+package-lock.json
 
 # Generated dist folder 
 dist

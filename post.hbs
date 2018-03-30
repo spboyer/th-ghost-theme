@@ -12,7 +12,7 @@
 
 
 
-<div class="post_header container"{{#if image}} style="background-image: url({{image}})"{{/if}}>
+<div class="post_header container"{{#if feature_image}} style="background-image: url({{feature_image}})"{{/if}}>
   <div class="hover"></div>
 </div>
 
@@ -72,9 +72,9 @@
             </section>
             {{#author}}
             <section class="article-open_author">
-                {{#if image}}
+                {{#if feature_img}}
                 <figure class="article-open_author_image">
-                <div class="img" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></div>
+                <div class="img" style="background-image: url({{feature_img}})"><span class="hidden">{{name}}'s Picture</span></div>
                 </figure>
                 {{/if}}
                 <div class="article-open_author_bio">
