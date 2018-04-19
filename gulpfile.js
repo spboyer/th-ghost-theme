@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     config = require('./package.json');
 
 var output_dir = 'dist';
-// to update the theme version, change the pacakge version in paskage.json
+// to update the theme version, change the pacakge version in package.json
 var current_version = 'sasquatchcoding-ghost-theme-' + config.version + '.zip';
 
 gulp.task('bundle-minify-js', function () {

@@ -1,6 +1,6 @@
 {
   "name": "sasquatchcoding",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": {
     "name": "Pete Skelly",
     "email": "peteskelly@gmail.com",
@@ -15,5 +15,8 @@
     "gulp-rimraf": "^0.2.0",
     "gulp-uglify": "^1.5.3",
     "gulp-zip": "^3.2.0"
+  },
+  "dependencies": {
+    "npm": "^5.8.0"
   }
 }
