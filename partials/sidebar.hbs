@@ -3,65 +3,71 @@
     {{#is "home"}}
     {{else}}
         <div class="widget sidebar-featured">
-            <h4 class="sidebar-featured-header">Shayne</h4>
-            <p>{{@blog.description}} <a href="/me" class="article_link-more fa fa-long-arrow-right"></a></p>
+            <h4 class="sidebar-featured-header">Pete</h4>
+            <p>{{@blog.description}} <a href="{{@blog.url}}/about" class="article_link-more fa fa-long-arrow-right"></a></p>
         </div>
-
         <hr/>
     {{/is}}
-
-
     <div class="widget sidebar-featured">
         <h4 class="sidebar-featured-header">Upcoming Events</h4>
-        <p>Here's the upcoming public events I'll be at:</p>
-        <ol>
-            <li><a href="https://devintersection.com/">DevIntersection/Anglebrackets: 24-28 Oct, Las Vegas, NV</a></li>
-            <li><a href="">Microsoft MVP Summit: ~Nov, Seattle, WA</a></li>
-        </ol>
+        <p>Here's some of the upcoming public events in Atlanta:</p>
+        <ul id="communitySideBar">
+        </ul>
     </div>
 
+        <hr/>
+        <div class="widget sidebar-featured">    
+        {{#is "home, tag, page"}}
+            <h4 class="sidebar-featured-header">All Tags:</h4>
+            {{#get "tags" limit="all"}}
+                    {{tags separator=" | "}}        
+            {{/get}}
+        {{else}}
+            <h4 class="sidebar-featured-header">Tagged With:</h4>
+            {{tags separator=" | "}}           
+        {{/is}}
+        </div>
+    
     <hr/>
-
-    <div id="ad1" class="panel" data-type="ad" data-publisher="tattoocoder.com" data-zone="sidebar" data-format="300x250"></div>
-
-    <hr/>
-
     <div class="widget sidebar-featured">
         <h4 class="sidebar-featured-header">Must Read</h4>
-            {{#is "home"}}
+        {{#get "posts" limit="3" filter="featured:true"}}
+            <ul>
                 {{#foreach posts}}
-                    {{#if featured}}
-                        <li><a href="{{url}}">{{title}}</a></li>
-                    {{/if}}
+                    <li><a href="{{url}}">{{title}}</a></li>
                 {{/foreach}}
+            </ul>
             {{else}}
-            <ol>
-                <li><a href="http://www.tattoocoder.com/angular-2-getting-off-the-starting-line/">Angular 2: Getting Off the Starting Line</a></li>
-                <li><a href="http://tattoocoder.com/asp-net-core-slack-community/">ASP.NET Core Slack Community</a></li>
-                <li><a href="http://www.tattoocoder.com/asp-net-core-needs-a-logo/">ASP.NET Core Needs a Logo!</a></li>
-                <li><a href="http://www.tattoocoder.com/all-about-that-config-no-bower/">All About That NPM No Bower</a></li>
-            </ol>
-            {{/is}}
+                {{#if @error}}{{@error}}{{/if}}
+        {{/get}}
     </div>
-
     <hr/>
-
-    <div id="ad5" class="panel" data-type="ad" data-publisher="tattoocoder.com" data-zone="sidebar" data-format="300x250"></div>
-
-    <hr/>
-
-    <div class="widget sidebar-featured">
-        <h4 class="sidebar-featured-header">Courses, Podcasts, Projects</h4>
-        <ol>
-            <li><a href="http://spboyer.me/pbpaspnetspboyer">Pluralsight: Play by Play - ASP.NET Core on any OS w/ John Papa &amp; Shayne Boyer</a></li>
-            <li><a href="https://devchat.tv/adventures-in-angular/082-aia-getting-started-with-angular-2-with-no-angular-1-experience-with-shayne-boyer" target="_blank">Adventures in Angular Podcast : Episode 82</a></li>
-            <li><a href="http://github.com/omnisharp/generator-aspnet" target="_blank">Yeoman Generators for ASP.NET Core</a></li>
-            <li><a href="http://tattoocoder.com/asp-net-core-slack-community/">ASP.NET Core Slack Community</a></li>
-        </ol>
+   <div class="widget sidebar-featured">
+        <h4 class="sidebar-featured-header">Most Recent</h4>
+        {{#get "posts" limit="3"}}
+            <ul>
+            {{#foreach posts}}
+                <li><a href="{{url}}">{{title}}</a></li>
+            {{/foreach}}
+            </ul>
+        {{else}}
+            {{#if @error}}{{@error}}{{/if}}
+        {{/get}}
     </div>
-
+    <!--  Need to figure out how to style background color and links to match -->
+    <!--
     <hr/>
-
-    <div id="ad2" class="panel" data-type="ad" data-publisher="tattoocoder.com" data-zone="sidebar" data-format="160x600"></div>
-
+      <div class="widget sidebar-featured">
+        <h4 class="sidebar-featured-header">Tweets</h4> 
+        <a class="twitter-timeline" data-width="350" data-height="500" data-theme="light" href="https://twitter.com/pskelly">Tweets by pskelly</a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>    
+      </div>
+      -->
+    <hr/>
+      <div class="widget sidebar-featured">
+        <h4 class="sidebar-featured-header">Podcasts</h4>
+        <ul id="podcastSideBar">
+        </ul>   
+    </div>
+    <hr/>
 </div>

@@ -403,7 +403,7 @@ pre
 .main-wrapper
 {
   position: relative;
-  min-height: 2500px;
+  min-height: 1250px;
 }
 
 .content-wrapper
@@ -1326,7 +1326,7 @@ th, td
     height: auto;
   }
 
-.article_content, .page article.article
+.article_content, .page-template article.article
 {
   padding-top: 5%;
 }
@@ -2088,7 +2088,7 @@ th, td
   display: none;
 }
 
-.archive-template .extra-pagination, .tags
+.paged .extra-pagination, .tags
 {
   display: block;
 }
